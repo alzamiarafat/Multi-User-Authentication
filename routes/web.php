@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/home', [HomeController::class, 'redirect']);
+
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('admin.home')->middleware('admin');
 
